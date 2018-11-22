@@ -27,7 +27,7 @@
  * @subpackage katodia_die_roller/includes
  * @author     Your Name <email@example.com>
  */
-class katodia_die_roller {
+class Katodia_die_roller {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -67,12 +67,12 @@ class katodia_die_roller {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'katodia_die_roller_VERSION' ) ) {
-			$this->version = katodia_die_roller_VERSION;
+		if ( defined( 'KATODIA_DIE_ROLLER_VERSION' ) ) {
+			$this->version = KATODIA_DIE_ROLLER_VERSION;
 		} else {
 			$this->version = '1.0.0';
 		}
-		$this->katodia_die_roller = 'plugin-name';
+		$this->katodia_die_roller = 'katodia-die-roller';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -103,24 +103,24 @@ class katodia_die_roller {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-plugin-name-loader.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/Katodia-die-roller-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-plugin-name-i18n.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/Katodia-die-roller-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-plugin-name-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/Katodia-die-roller-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-plugin-name-public.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/Katodia-die-roller-public.php';
 
 		$this->loader = new katodia_die_roller_Loader();
 
@@ -168,10 +168,11 @@ class katodia_die_roller {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new katodia_die_roller_Public( $this->get_katodia_die_roller(), $this->get_version() );
+		$plugin_public = new Katodia_die_roller_Public( $this->get_katodia_die_roller(), $this->get_version() );
 
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+		//$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
+		//$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+		$plugin_public->register_shortcodes();
 
 	}
 

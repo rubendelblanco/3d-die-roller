@@ -1,26 +1,26 @@
 <?php
 
 /**
- * The public-facing functionality of the plugin.
+ * The admin-specific functionality of the plugin.
  *
  * @link       http://example.com
  * @since      1.0.0
  *
  * @package    katodia_die_roller
- * @subpackage katodia_die_roller/public
+ * @subpackage katodia_die_roller/admin
  */
 
 /**
- * The public-facing functionality of the plugin.
+ * The admin-specific functionality of the plugin.
  *
  * Defines the plugin name, version, and two examples hooks for how to
- * enqueue the public-facing stylesheet and JavaScript.
+ * enqueue the admin-specific stylesheet and JavaScript.
  *
  * @package    katodia_die_roller
- * @subpackage katodia_die_roller/public
+ * @subpackage katodia_die_roller/admin
  * @author     Your Name <email@example.com>
  */
-class katodia_die_roller_Public {
+class Katodia_die_roller_Admin {
 
 	/**
 	 * The ID of this plugin.
@@ -44,7 +44,7 @@ class katodia_die_roller_Public {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param      string    $katodia_die_roller       The name of the plugin.
+	 * @param      string    $katodia_die_roller       The name of this plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
 	public function __construct( $katodia_die_roller, $version ) {
@@ -55,7 +55,7 @@ class katodia_die_roller_Public {
 	}
 
 	/**
-	 * Register the stylesheets for the public-facing side of the site.
+	 * Register the stylesheets for the admin area.
 	 *
 	 * @since    1.0.0
 	 */
@@ -73,12 +73,12 @@ class katodia_die_roller_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->katodia_die_roller, plugin_dir_url( __FILE__ ) . 'css/plugin-name-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->katodia_die_roller, plugin_dir_url( __FILE__ ) . 'css/plugin-name-admin.css', array(), $this->version, 'all' );
 
 	}
 
 	/**
-	 * Register the JavaScript for the public-facing side of the site.
+	 * Register the JavaScript for the admin area.
 	 *
 	 * @since    1.0.0
 	 */
@@ -96,7 +96,7 @@ class katodia_die_roller_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->katodia_die_roller, plugin_dir_url( __FILE__ ) . 'js/plugin-name-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->katodia_die_roller, plugin_dir_url( __FILE__ ) . 'js/plugin-name-admin.js', array( 'jquery' ), $this->version, false );
 
 	}
 

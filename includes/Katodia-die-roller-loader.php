@@ -21,7 +21,7 @@
  * @subpackage katodia_die_roller/includes
  * @author     Your Name <email@example.com>
  */
-class katodia_die_roller_Loader {
+class Katodia_die_roller_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.

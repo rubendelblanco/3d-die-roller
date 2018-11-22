@@ -24,7 +24,7 @@
  * @subpackage katodia_die_roller/includes
  * @author     Your Name <email@example.com>
  */
-class katodia_die_roller_i18n {
+class Katodia_die_roller_i18n {
 
 
 	/**
