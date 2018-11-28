@@ -386,7 +386,7 @@
         this.world.addContactMaterial(new CANNON.ContactMaterial(
             this.dieBodyMaterial, this.dieBodyMaterial, 0, 0.5));
 
-        this.desk = new THREE.Mesh(new THREE.PlaneGeometry(this.w * 2, this.h * 2, 1, 1), 
+        this.desk = new THREE.Mesh(new THREE.PlaneGeometry(this.w * 2, this.h * 2, 1, 1),
                                    new THREE.MeshLambertMaterial({ color: 0xffffff }));
         this.desk.receiveShadow = true;
         this.scene.add(this.desk);
@@ -524,7 +524,7 @@
         this.running = false;
         var die;
         while ((die = this.dice.pop())) {
-            this.scene.remove(die); 
+            this.scene.remove(die);
             if (die.body) {
                 this.world.remove(die.body);
             }
@@ -627,19 +627,22 @@
     };
 
     this.dieBox.prototype.searchDieByMouse = function(ev) {
-        var intersects = (new THREE.Raycaster(this.camera.position, 
-                                              (new THREE.Vector3((ev.clientX - this.cw) / this.aspect,
-                                                                 (ev.clientY - this.ch) / this.aspect, this.w / 9))
-                                              .sub(this.camera.position).normalize())).intersectObjects(this.dice);
-        if (intersects.length) {
-            return intersects[0].object.userData;
-        }
+      var offsets = document.getElementById('canvas').getBoundingClientRect();
+      var top = offsets.top;
+      var left = offsets.left;
+      var intersects = (new THREE.Raycaster(this.camera.position,
+                                            (new THREE.Vector3((ev.clientX - left - this.cw) / this.aspect,
+                                                               (ev.clientY - top - this.ch) / this.aspect, this.w / 9))
+                                            .sub(this.camera.position).normalize())).intersectObjects(this.dice);
+      if (intersects.length) {
+          return intersects[0].object.userData;
+      }
     };
 
     this.dieBox.prototype.drawSelector = function() {
         this.clear();
         var step = this.w / 4.5;
-        this.pane = new THREE.Mesh(new THREE.PlaneGeometry(this.cw * 20, this.ch * 20, 1, 1), 
+        this.pane = new THREE.Mesh(new THREE.PlaneGeometry(this.cw * 20, this.ch * 20, 1, 1),
                                    new THREE.MeshPhongMaterial({ color: 0, ambient: 0xfbfbfb, emissive: 0 }));
         this.pane.receiveShadow = true;
         this.pane.position.set(0, 0, 1);

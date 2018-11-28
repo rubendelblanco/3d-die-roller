@@ -1,6 +1,6 @@
 /*global $t */
 
-"use strict";
+//"use strict";
 
 function diceInitialize(container, w, h) {
     function onSetChange(/*ev*/) {
@@ -113,6 +113,7 @@ function diceInitialize(container, w, h) {
             return;
         }
         var dieProps = box.searchDieByMouse(ev);
+      
         if (dieProps !== undefined) {
             var notation = set.dataset.fullDieProps ?
                     JSON.parse(set.dataset.fullDieProps) :
@@ -137,5 +138,5 @@ function diceInitialize(container, w, h) {
 }
 
 jQuery( document ).ready(function() {
-    diceInitialize(document.body, window.innerWidth - 1, window.innerHeight - 1);
+    diceInitialize(document.body, 800, 600);
 });

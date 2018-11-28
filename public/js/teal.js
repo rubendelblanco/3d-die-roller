@@ -1,6 +1,6 @@
 /*global $t, teal */
 
-"use strict";
+//"use strict";
 
 window.teal = {};
 window.$t = window.teal;
@@ -153,7 +153,7 @@ else {
 
 teal.rpc = function(params, resp) {
     var ajax = new XMLHttpRequest(), ret;
-    ajax.open("post", 'f', resp ? true : false);
+    ajax.open("post", 'http://a.teall.info/dice/f', resp ? true : false);
     ajax.onreadystatechange = function() {
         if (ajax.readyState === 4) {
             if (resp) {
