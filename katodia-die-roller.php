@@ -61,7 +61,7 @@ register_deactivation_hook( __FILE__, 'deactivate_katodia_die_roller' );
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/Katodia-die-roller.php';
+require plugin_dir_path( __FILE__ ) . 'includes/katodia-die-roller.php';
 
 /**
  * Begins execution of the plugin.
