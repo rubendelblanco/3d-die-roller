@@ -27,6 +27,7 @@ function diceInitialize(container, w, h) {
     $t.bind($t.id('clear'), ['mouseup', 'touchend', 'touchcancel'], function(ev) {
         ev.stopPropagation();
         set.value = '0';
+        set.dataset.fullDieProps = '{"set":[], "constant":0}';
         onSetChange();
     });
 
@@ -113,7 +114,7 @@ function diceInitialize(container, w, h) {
             return;
         }
         var dieProps = box.searchDieByMouse(ev);
-      
+
         if (dieProps !== undefined) {
             var notation = set.dataset.fullDieProps ?
                     JSON.parse(set.dataset.fullDieProps) :
@@ -138,5 +139,12 @@ function diceInitialize(container, w, h) {
 }
 
 jQuery( document ).ready(function() {
+    var elem = document.getElementsByClassName("center_field");
+
+    for (var i = 0; i < elem.length; i++){
+      elem[i].style.width = '800px';
+      elem[i].style.height = '600px';
+    }
+
     diceInitialize(document.body, 800, 600);
 });
