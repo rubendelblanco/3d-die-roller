@@ -49,7 +49,7 @@ class Katodia_die_roller_Public {
 	 */
 	public function __construct( $katodia_die_roller, $version ) {
 
-		$this->katodia_die_roller = $katodia_die_roller;
+		$this->plugin_name = $katodia_die_roller;
 		$this->version = $version;
 
 	}

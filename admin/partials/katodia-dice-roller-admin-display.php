@@ -14,3 +14,12 @@
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
+
+<div class="wrap">
+  <h1>Configuración</h1>
+  <div class="postbox">
+    <div class="inside">
+      sdañsdkfñsdkfñ
+    </div>
+  </div>
+</div>

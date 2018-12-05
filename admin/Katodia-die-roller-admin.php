@@ -47,9 +47,9 @@ class Katodia_die_roller_Admin {
 	 * @param      string    $katodia_die_roller       The name of this plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $katodia_die_roller, $version ) {
+	public function __construct( $plugin_name, $version ) {
 
-		$this->katodia_die_roller = $katodia_die_roller;
+		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
 	}
@@ -73,7 +73,7 @@ class Katodia_die_roller_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->katodia_die_roller, plugin_dir_url( __FILE__ ) . 'css/plugin-name-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name , plugin_dir_url( __FILE__ ) . 'css/plugin-name-admin.css', array(), $this->version, 'all' );
 
 	}
 
@@ -96,8 +96,29 @@ class Katodia_die_roller_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->katodia_die_roller, plugin_dir_url( __FILE__ ) . 'js/plugin-name-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/plugin-name-admin.js', array( 'jquery' ), $this->version, false );
 
+	}
+
+	/**
+	 * Add an options page under the Settings submenu
+	 *
+	 * @since  1.0.0
+	 */
+	public function add_options_page() {
+
+		$this->plugin_screen_hook_suffix = add_options_page(
+			__( '3D die roller', 'katodia-die-roller' ),
+			__( '3D die roller', 'katodia-die-roller' ),
+			'manage_options',
+			$this->plugin_name,
+			array( $this, 'display_options_page' )
+		);
+
+	}
+
+	public function display_options_page() {
+		include_once 'partials/katodia-dice-roller-admin-display.php';
 	}
 
 }

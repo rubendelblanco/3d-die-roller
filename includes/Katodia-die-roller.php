@@ -72,7 +72,7 @@ class Katodia_die_roller {
 		} else {
 			$this->version = '1.0.0';
 		}
-		$this->katodia_die_roller = 'katodia-die-roller';
+		$this->plugin_name = 'katodia-die-roller';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -156,6 +156,7 @@ class Katodia_die_roller {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_options_page' );
 
 	}
 
@@ -193,7 +194,7 @@ class Katodia_die_roller {
 	 * @return    string    The name of the plugin.
 	 */
 	public function get_katodia_die_roller() {
-		return $this->katodia_die_roller;
+		return $this->plugin_name;
 	}
 
 	/**
