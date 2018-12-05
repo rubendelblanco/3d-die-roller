@@ -103,24 +103,24 @@ class Katodia_die_roller {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/Katodia-die-roller-loader.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/katodia-die-roller-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/Katodia-die-roller-i18n.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/katodia-die-roller-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/Katodia-die-roller-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/katodia-die-roller-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/Katodia-die-roller-public.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/katodia-die-roller-public.php';
 
 		$this->loader = new katodia_die_roller_Loader();
 
