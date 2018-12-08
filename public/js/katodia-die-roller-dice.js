@@ -627,9 +627,13 @@
     };
 
     this.dieBox.prototype.searchDieByMouse = function(ev) {
+
+        var div = document.getElementById("selector_div");
+        var rect = div.getBoundingClientRect();
+
         var intersects = (new THREE.Raycaster(this.camera.position, 
-                                              (new THREE.Vector3((ev.clientX - this.cw) / this.aspect,
-                                                                 (ev.clientY - this.ch) / this.aspect, this.w / 9))
+                                              (new THREE.Vector3((ev.clientX - rect.left - this.cw) / this.aspect,
+                                                                 (ev.clientY - rect.top - this.ch) / this.aspect, this.w / 9))
                                               .sub(this.camera.position).normalize())).intersectObjects(this.dice);
         if (intersects.length) {
             return intersects[0].object.userData;

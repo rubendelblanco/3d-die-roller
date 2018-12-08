@@ -114,10 +114,7 @@ function diceInitialize(container, w, h) {
             return;
         }
         var dieProps = box.searchDieByMouse(ev);
-<<<<<<< HEAD
 
-=======
->>>>>>> 1acdb9df54dd32c0f9abc2c372b80ffe5bf3db94
         if (dieProps !== undefined) {
             var notation = set.dataset.fullDieProps ?
                     JSON.parse(set.dataset.fullDieProps) :
@@ -142,7 +139,6 @@ function diceInitialize(container, w, h) {
 }
 
 jQuery( document ).ready(function() {
-<<<<<<< HEAD
     var elem = document.getElementsByClassName("center_field");
 
     for (var i = 0; i < elem.length; i++){
@@ -151,7 +147,5 @@ jQuery( document ).ready(function() {
     }
 
     diceInitialize(document.body, 800, 600);
-=======
-    diceInitialize(document.body, window.innerWidth - 1, window.innerHeight - 1);
->>>>>>> 1acdb9df54dd32c0f9abc2c372b80ffe5bf3db94
+
 });
